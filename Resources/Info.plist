@@ -1,0 +1,11 @@
+{
+    CFBundleDevelopmentRegion = English;
+    CFBundleExecutable = NativeDepthUnlockPrefs;
+    CFBundleIdentifier = "com.codex.nativedepthunlockprefs.bundle";
+    CFBundleInfoDictionaryVersion = "6.0";
+    CFBundleName = NativeDepthUnlockPrefs;
+    CFBundlePackageType = BNDL;
+    CFBundleShortVersionString = "0.1.0";
+    CFBundleVersion = "0.1.0";
+    NSPrincipalClass = NDRootListController;
+}
