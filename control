@@ -1,0 +1,9 @@
+Package: com.codex.nativedepthunlock
+Name: NativeDepthUnlock
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Description: Experimental probe for Apple's native Lock Screen depth capability
+Maintainer: Codex
+Author: Codex
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader, firmware (>= 16.0)

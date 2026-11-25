@@ -1,0 +1,8 @@
+{
+    entry = {
+        bundle = "NativeDepthUnlockPrefs";
+        cell = PSLinkCell;
+        detail = NDRootListController;
+        label = "Native Depth Effect";
+    };
+}
