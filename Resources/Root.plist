@@ -1,0 +1,21 @@
+{
+    items = (
+        {
+            cell = PSGroupCell;
+            label = "Depth Effect gốc của Apple";
+            footerText = "Thử nghiệm trên iPhone X. Công tắc chỉ trả lời Có cho truy vấn năng lực có tên khớp với wallpaper và depth. Nó không bổ sung bộ dựng hình còn thiếu, nên có thể bật mà hiệu ứng gốc vẫn không xuất hiện.";
+        },
+        {
+            cell = PSSwitchCell;
+            label = "Thử bật đường xử lý gốc";
+            default = NO;
+            defaults = "com.codex.nativedepthunlock";
+            key = Enabled;
+            PostNotification = "com.codex.nativedepthunlock/settingschanged";
+        },
+        {
+            cell = PSGroupCell;
+            footerText = "Apple không hỗ trợ chính thức Depth Effect tùy chỉnh trên iPhone X. Sau khi cài hoặc đổi công tắc, hãy respring. Nếu hiệu ứng gốc không xuất hiện, dùng DepthLayer để tạo lớp người phủ lên đồng hồ.";
+        }
+    );
+}
