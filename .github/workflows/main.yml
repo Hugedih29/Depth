@@ -1,0 +1,50 @@
+name: Build DepthEffect Suite
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Check out RootHide Theos
+        uses: actions/checkout@v4
+        with:
+          repository: roothide/theos
+          ref: master
+          path: theos-roothide
+          submodules: recursive
+
+      - name: Install build tools
+        run: brew install ldid-procursus p7zip make
+
+      - name: Install iOS SDK
+        env:
+          THEOS: ${{ github.workspace }}/theos-roothide
+          GITHUB_TOKEN: ${{ github.token }}
+        run: ./theos-roothide/bin/install-sdk iPhoneOS16.5
+
+      - name: Build both RootHide tweaks with their Settings panes
+        env:
+          THEOS: ${{ github.workspace }}/theos-roothide
+          THEOS_PACKAGE_SCHEME: roothide
+        run: |
+          set -e
+          for project in DepthLayer NativeDepthUnlock; do
+            make -C "$project" clean package FINALPACKAGE=1
+          done
+
+      - name: Upload RootHide packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: DepthEffectSuite-Roothide-iphoneos-arm64
+          path: "*/packages/*.deb"
+          if-no-files-found: error
+          retention-days: 30
